@@ -18,7 +18,6 @@ include('koneksi.php');
                   <h4 class="card-title">Input Data untuk Prediksi</h4>
                   <form action="controller/prediksi.php" method="POST">
 
-                    <!-- Dropdown Objek Wisata -->
                     <div class="form-group">
                       <label>Objek Wisata</label>
                       <select name="id_objek" class="form-control" required>
@@ -32,7 +31,6 @@ include('koneksi.php');
                       </select>
                     </div>
 
-                    <!-- Input Kriteria Dinamis -->
                     <?php
                     $query = mysqli_query($conn, "SELECT * FROM kriteria ORDER BY id_kriteria ASC");
                     while ($row = mysqli_fetch_assoc($query)) {
@@ -55,7 +53,6 @@ include('koneksi.php');
                       </div>
                     <?php } ?>
 
-                    <!-- Tombol -->
                     <button type="submit" class="btn btn-success">Prediksi</button>
                     <a href="index.php" class="btn btn-light">Batal</a>
                   </form>

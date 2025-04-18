@@ -23,7 +23,6 @@ try:
 
     df_input.columns = [col.lower().strip() for col in metadata["fitur"]]
 
-    # Tidak perlu konversi string di sini karena sudah dikonversi di PHP
     if df_input.isnull().any().any():
         print("❌ Data input mengandung nilai tidak valid atau kosong.")
         print(df_input)

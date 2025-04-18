@@ -6,6 +6,9 @@ switch ($page) {
   case 'login':
     include 'view/login.php';
     break;
+  case 'register':
+    include 'view/registrasi.php';
+    break;
   case 'home':
     include 'view/home.php';
     break;

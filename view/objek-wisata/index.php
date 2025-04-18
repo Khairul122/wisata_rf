@@ -31,7 +31,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="table-responsive">
                                         <table class="table table-hover table-striped">
                                             <thead class="bg-light">
@@ -48,7 +48,8 @@
                                             </thead>
                                             <tbody>
                                                 <?php if (count($data_wisata) > 0): ?>
-                                                    <?php $no = $offset + 1; foreach ($data_wisata as $row): ?>
+                                                    <?php $no = $offset + 1;
+                                                    foreach ($data_wisata as $row): ?>
                                                         <tr>
                                                             <td class="text-center"><?= $no++ ?></td>
                                                             <td class="fw-medium"><?= htmlspecialchars($row['nama_objek']) ?></td>
@@ -96,59 +97,59 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    
+
                                     <?php if ($totalPage > 1): ?>
-                                    <nav aria-label="Page navigation" class="mt-4">
-                                        <ul class="pagination justify-content-end">
-                                            <?php if ($page > 1): ?>
-                                            <li class="page-item">
-                                                <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page-1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Previous">
-                                                    <span aria-hidden="true">&laquo;</span>
-                                                </a>
-                                            </li>
-                                            <?php endif; ?>
-                                            
-                                            <?php 
-                                            $startPage = max(1, min($page - 2, $totalPage - 4));
-                                            $endPage = min($totalPage, max($page + 2, 5));
-                                            
-                                            if ($startPage > 1): ?>
-                                            <li class="page-item">
-                                                <a class="page-link" href="index.php?page=objek_wisata&p=1&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">1</a>
-                                            </li>
-                                            <?php if ($startPage > 2): ?>
-                                            <li class="page-item disabled">
-                                                <span class="page-link">...</span>
-                                            </li>
-                                            <?php endif; ?>
-                                            <?php endif; ?>
-                                            
-                                            <?php for ($i = $startPage; $i <= $endPage; $i++): ?>
-                                            <li class="page-item <?= $i == $page ? 'active' : '' ?>">
-                                                <a class="page-link" href="index.php?page=objek_wisata&p=<?= $i ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $i ?></a>
-                                            </li>
-                                            <?php endfor; ?>
-                                            
-                                            <?php if ($endPage < $totalPage): ?>
-                                            <?php if ($endPage < $totalPage - 1): ?>
-                                            <li class="page-item disabled">
-                                                <span class="page-link">...</span>
-                                            </li>
-                                            <?php endif; ?>
-                                            <li class="page-item">
-                                                <a class="page-link" href="index.php?page=objek_wisata&p=<?= $totalPage ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $totalPage ?></a>
-                                            </li>
-                                            <?php endif; ?>
-                                            
-                                            <?php if ($page < $totalPage): ?>
-                                            <li class="page-item">
-                                                <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page+1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Next">
-                                                    <span aria-hidden="true">&raquo;</span>
-                                                </a>
-                                            </li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </nav>
+                                        <nav aria-label="Page navigation" class="mt-4">
+                                            <ul class="pagination justify-content-end">
+                                                <?php if ($page > 1): ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page - 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Previous">
+                                                            <span aria-hidden="true">&laquo;</span>
+                                                        </a>
+                                                    </li>
+                                                <?php endif; ?>
+
+                                                <?php
+                                                $startPage = max(1, min($page - 2, $totalPage - 4));
+                                                $endPage = min($totalPage, max($page + 2, 5));
+
+                                                if ($startPage > 1): ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=1&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">1</a>
+                                                    </li>
+                                                    <?php if ($startPage > 2): ?>
+                                                        <li class="page-item disabled">
+                                                            <span class="page-link">...</span>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+
+                                                <?php for ($i = $startPage; $i <= $endPage; $i++): ?>
+                                                    <li class="page-item <?= $i == $page ? 'active' : '' ?>">
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $i ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $i ?></a>
+                                                    </li>
+                                                <?php endfor; ?>
+
+                                                <?php if ($endPage < $totalPage): ?>
+                                                    <?php if ($endPage < $totalPage - 1): ?>
+                                                        <li class="page-item disabled">
+                                                            <span class="page-link">...</span>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $totalPage ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $totalPage ?></a>
+                                                    </li>
+                                                <?php endif; ?>
+
+                                                <?php if ($page < $totalPage): ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page + 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Next">
+                                                            <span aria-hidden="true">&raquo;</span>
+                                                        </a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </nav>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -190,14 +191,14 @@
                 });
             }
         });
-        
+
         function showImageModal(src, title) {
             const modalImage = document.getElementById('modalImage');
             const modalTitle = document.getElementById('modalTitle');
             modalImage.src = src;
             modalImage.alt = "Foto " + title;
             modalTitle.textContent = title;
-            
+
             const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
             imageModal.show();
 
@@ -208,4 +209,5 @@
         }
     </script>
 </body>
+
 </html>

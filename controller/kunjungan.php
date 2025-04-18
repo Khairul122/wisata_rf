@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . '/../koneksi.php';
 
-// Proses Tambah Data Kunjungan
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah') {
     include '../koneksi.php';
     
@@ -9,11 +8,9 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah') {
     $tahun = mysqli_real_escape_string($conn, $_POST['tahun']);
     $jumlah_pengunjung = mysqli_real_escape_string($conn, $_POST['jumlah_pengunjung']);
     
-    // Validasi data
     $error = false;
     $error_message = '';
     
-    // Cek apakah data untuk objek wisata dan tahun ini sudah ada
     $check_query = "SELECT COUNT(*) as total FROM kunjungan_wisata 
                     WHERE id_objek = ? AND tahun = ?";
     $stmt = $conn->prepare($check_query);
@@ -45,7 +42,6 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah') {
     exit;
 }
 
-// Proses Update Data Kunjungan
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'update') {
     include '../koneksi.php';
     
@@ -54,7 +50,6 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'update') {
     $tahun = mysqli_real_escape_string($conn, $_POST['tahun']);
     $jumlah_pengunjung = mysqli_real_escape_string($conn, $_POST['jumlah_pengunjung']);
     
-    // Validasi data - cek duplikasi kecuali untuk record yang sedang diedit
     $check_query = "SELECT COUNT(*) as total FROM kunjungan_wisata 
                     WHERE id_objek = ? AND tahun = ? AND id_kunjungan != ?";
     $stmt = $conn->prepare($check_query);
@@ -84,7 +79,6 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'update') {
     exit;
 }
 
-// Proses Hapus Data Kunjungan
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
     include '../koneksi.php';
     
@@ -103,16 +97,15 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
     exit;
 }
 
-// Setup untuk Pagination dan Filtering
 $limit = 10;
 $page = isset($_GET['page_no']) ? (int)$_GET['page_no'] : 1;
 $offset = ($page - 1) * $limit;
 
-// Handle filters
+
 $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, trim($_GET['search'])) : '';
 $filter_tahun = isset($_GET['filter_tahun']) ? mysqli_real_escape_string($conn, $_GET['filter_tahun']) : '';
 
-// Build WHERE clause
+
 $where = [];
 if ($search) {
     $where[] = "o.nama_objek LIKE '%$search%'";
@@ -123,7 +116,6 @@ if ($filter_tahun) {
 
 $whereClause = count($where) > 0 ? "WHERE " . implode(" AND ", $where) : "";
 
-// Get total records for pagination
 $totalQuery = $conn->query("SELECT COUNT(*) AS total 
                             FROM kunjungan_wisata k 
                             JOIN objek_wisata o ON k.id_objek = o.id_objek
@@ -131,14 +123,13 @@ $totalQuery = $conn->query("SELECT COUNT(*) AS total
 $totalRow = $totalQuery->fetch_assoc()['total'];
 $total_pages = ceil($totalRow / $limit);
 
-// Get the main data
+
 $query = "SELECT k.id_kunjungan, k.tahun, k.jumlah_pengunjung, o.nama_objek 
           FROM kunjungan_wisata k 
           JOIN objek_wisata o ON k.id_objek = o.id_objek 
           $whereClause
           ORDER BY k.tahun DESC, o.nama_objek ASC";
 
-// Add limit if pagination is needed
 if ($total_pages > 1) {
     $query .= " LIMIT $limit OFFSET $offset";
 }
@@ -152,7 +143,7 @@ if ($result && $result->num_rows > 0) {
     }
 }
 
-// Function to get all objek wisata for dropdown
+
 function getAllObjekWisata($conn) {
     $objek_list = [];
     $query = "SELECT id_objek, nama_objek FROM objek_wisata ORDER BY nama_objek ASC";

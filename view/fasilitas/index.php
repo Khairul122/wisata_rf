@@ -11,8 +11,7 @@
                     <div class="row">
                         <div class="col-12">
                             <?php 
-                            // Pagination setup
-                            $limit = 10; // items per page
+                            $limit = 10; 
                             $page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
                             $offset = ($page - 1) * $limit;
                             
@@ -68,14 +67,13 @@
                                                     $objek_count = 0;
                                                     
                                                     foreach ($data_fasilitas as $index => $row): 
-                                                        // Group facilities by objek_wisata
+
                                                         if ($current_objek != $row['id_objek']) {
                                                             $current_objek = $row['id_objek'];
                                                             $objek_count++;
                                                             $show_row = true;
                                                             $rowspan = 1;
                                                             
-                                                            // Count facilities for this objek
                                                             foreach ($data_fasilitas as $count_row) {
                                                                 if ($count_row['id_objek'] == $current_objek && $index != array_search($count_row, $data_fasilitas)) {
                                                                     $rowspan++;
@@ -205,7 +203,7 @@
         </div>
     </div>
 
-    <!-- Modal Konfirmasi Hapus -->
+
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

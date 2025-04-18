@@ -16,8 +16,7 @@
                                         <h4 class="card-title mb-0">Data Nilai Kriteria</h4>
                                         <a href="index.php?page=data_kriteria_tambah" class="btn btn-primary btn-sm">+ Tambah Data</a>
                                     </div>
-                                    
-                                    <!-- Form Filter -->
+
                                     <div class="row mb-3">
                                         <div class="col-md-6">
                                             <form action="" method="GET" class="form-inline">

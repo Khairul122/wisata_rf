@@ -22,7 +22,6 @@
                           <select name="filter_tahun" class="form-select" style="max-width: 150px;">
                             <option value="">Semua Tahun</option>
                             <?php 
-                            // Get unique years from data
                             $years = [];
                             foreach($data_kunjungan as $item) {
                               if (!in_array($item['tahun'], $years)) {
@@ -92,7 +91,6 @@
                                 <div class="d-flex align-items-center">
                                   <div class="progress flex-grow-1 me-2" style="height: 6px;">
                                     <?php 
-                                    // Find max visitors to calculate percentage
                                     $max_visitors = 0;
                                     foreach($data_kunjungan as $item) {
                                       if ($item['jumlah_pengunjung'] > $max_visitors) {
@@ -178,7 +176,6 @@
                   </nav>
                   <?php endif; ?>
 
-                  <!-- Summary Stats -->
                   <?php if (count($data_kunjungan) > 0): ?>
                   <div class="row mt-4">
                     <div class="col-12">
@@ -187,7 +184,6 @@
                           <h5 class="card-title mb-3">Ringkasan Kunjungan</h5>
                           <div class="row">
                             <?php
-                            // Calculate summary statistics
                             $total_visitors = 0;
                             $years_data = [];
                             $locations_data = [];
@@ -206,12 +202,10 @@
                               $locations_data[$item['nama_objek']] += $item['jumlah_pengunjung'];
                             }
                             
-                            // Sort and find top locations
                             arsort($locations_data);
                             $top_location = key($locations_data);
                             $top_location_visitors = reset($locations_data);
                             
-                            // Year with highest visitors
                             arsort($years_data);
                             $top_year = key($years_data);
                             $top_year_visitors = reset($years_data);
@@ -263,7 +257,6 @@
     </div>
   </div>
 
-  <!-- Modal Konfirmasi Hapus -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -286,13 +279,11 @@
   <?php include 'view/template/script.php'; ?>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Inisialisasi tooltips
       const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
       tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
       });
       
-      // Filter tahun change handler
       const filterTahun = document.querySelector('select[name="filter_tahun"]');
       if (filterTahun) {
         filterTahun.addEventListener('change', function() {
@@ -301,7 +292,6 @@
       }
     });
     
-    // Fungsi konfirmasi hapus dengan modal
     function confirmDelete(id, location, year) {
       document.getElementById('locationName').textContent = location;
       document.getElementById('visitYear').textContent = year;

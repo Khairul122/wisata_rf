@@ -20,7 +20,7 @@
                 </div>
               </form>
               <div class="text-center mt-4 font-weight-light">
-                Belum punya akun? <a href="#" class="text-primary">Registrasi</a>
+                Belum punya akun? <a href="index.php?page=register" class="text-primary">Registrasi</a>
               </div>
             </div>
           </div>
