@@ -31,5 +31,6 @@
             date.setTime(date.getTime() + 24 * 60 * 60 * 1000); 
             $.cookie('staradmin2-free-banner', "true", { expires: date });
           });
+          
     })
 })(jQuery)

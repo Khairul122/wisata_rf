@@ -1,4 +1,7 @@
 <?php
+error_reporting(0);
+ini_set('display_errors', 0);
+session_start();
 include __DIR__ . '/../koneksi.php';
 
 if (isset($_GET['aksi']) && $_GET['aksi'] === 'logout') {
