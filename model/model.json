@@ -1,0 +1,16 @@
+{
+  "fitur": [
+    "Fasilitas",
+    "Akses Jalan",
+    "Rating Pengunjung",
+    "Jumlah Pengunjung",
+    "Jarak ke Kota"
+  ],
+  "jumlah_data_latih": 20,
+  "jumlah_data_uji": 6,
+  "label_unik": [
+    "Baik",
+    "Buruk",
+    "Sangat Baik"
+  ]
+}

@@ -1,5 +1,12 @@
 <?php
-include 'koneksi.php';
+include __DIR__ . '/../koneksi.php';
+
+if (isset($_GET['aksi']) && $_GET['aksi'] === 'logout') {
+    session_unset();
+    session_destroy();
+    echo "<script>alert('Anda berhasil logout'); window.location.href = '../index.php?page=login';</script>";
+    exit;
+}
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -18,4 +25,3 @@ if ($result->num_rows === 1) {
     echo "<script>alert('Login gagal'); window.location.href = 'index.php?page=login';</script>";
     exit;
 }
-?>

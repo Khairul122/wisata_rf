@@ -2,35 +2,51 @@
 $menu = [
   [
     'title' => 'Dashboard',
-    'icon' => 'mdi-view-dashboard',
-    'url' => 'index.php?page=dashboard',
+    'icon' => 'mdi-view-dashboard', 
+    'url' => 'index.php?page=home',
   ],
   [
     'title' => 'Objek Wisata',
-    'icon' => 'mdi-cube-outline',
+    'icon' => 'mdi-map-marker-radius', 
     'url' => 'index.php?page=objek_wisata',
   ],
   [
-    'title' => 'Penjualan',
-    'icon' => 'mdi-cart-outline',
-    'url' => 'index.php?page=penjualan',
+    'title' => 'Fasilitas',
+    'icon' => 'mdi-tools', 
+    'url' => 'index.php?page=fasilitas',
   ],
   [
-    'title' => 'Inventory',
-    'icon' => 'mdi-warehouse',
-    'url' => 'index.php?page=inventory',
+    'title' => 'Kunjungan',
+    'icon' => 'mdi-account-group',
+    'url' => 'index.php?page=kunjungan',
   ],
   [
-    'title' => 'Perhitungan WAC',
-    'icon' => 'mdi-calculator-variant-outline',
-    'url' => 'index.php?page=wac',
+    'title' => 'Kriteria',
+    'icon' => 'mdi-format-list-checks', 
+    'url' => 'index.php?page=kriteria',
   ],
   [
-    'title' => 'Laporan',
-    'icon' => 'mdi-file-chart-outline',
-    'url' => 'index.php?page=laporan',
-  ]
+    'title' => 'Data Kriteria',
+    'icon' => 'mdi-format-list-checks', 
+    'url' => 'index.php?page=data_kriteria',
+  ],
+  [
+    'title' => 'Latih Data',
+    'icon' => 'mdi-format-list-checks', 
+    'url' => 'index.php?page=latih_data',
+  ],
+  [
+    'title' => 'Prediksi',
+    'icon' => 'mdi-format-list-checks', 
+    'url' => 'index.php?page=prediksi',
+  ],
+  [
+    'title' => 'Prediksi Wisata',
+    'icon' => 'mdi-format-list-checks', 
+    'url' => 'index.php?page=prediksi_tambah',
+  ],
 ];
+
 
 $currentPage = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 $userLevel = isset($_SESSION['level']) ? $_SESSION['level'] : '';

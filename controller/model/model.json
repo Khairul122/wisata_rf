@@ -1,0 +1,16 @@
+{
+  "fitur": [
+    "kriteria_1",
+    "kriteria_2",
+    "kriteria_3",
+    "kriteria_4",
+    "kriteria_6"
+  ],
+  "jumlah_data_latih": 18,
+  "jumlah_data_uji": 8,
+  "label_unik": [
+    "Baik",
+    "Buruk",
+    "Sangat Baik"
+  ]
+}

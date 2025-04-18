@@ -40,7 +40,7 @@ $emailPengguna = isset($_SESSION['email']) ? $_SESSION['email'] : '-';
             <p class="mb-1 mt-3 font-weight-semibold"><?php echo htmlspecialchars($namaPengguna); ?></p>
             <p class="fw-light text-muted mb-0"><?php echo htmlspecialchars($emailPengguna); ?></p>
           </div>
-          <a class="dropdown-item" href="controller/AuthController.php?action=logout">
+          <a class="dropdown-item" href="controller/auth.php?aksi=logout">
             <i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out
           </a>
         </div>
