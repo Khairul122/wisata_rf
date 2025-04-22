@@ -27,22 +27,54 @@
                         ?>
                       </select>
                     </div>
+
                     <div class="form-group">
                       <label>Nama Fasilitas</label>
-                      <input type="text" name="nama_fasilitas" class="form-control" required>
+                      <div id="fasilitas-wrapper">
+                        <div class="input-group mb-2">
+                          <input type="text" name="nama_fasilitas[]" class="form-control" required>
+                          <div class="input-group-append">
+                            <button class="btn btn-danger remove-fasilitas" type="button">Hapus</button>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" id="tambah-fasilitas" class="btn btn-primary btn-sm mt-2">+ Tambah Fasilitas</button>
                     </div>
+
                     <button type="submit" class="btn btn-success">Simpan</button>
                     <a href="index.php?page=fasilitas" class="btn btn-secondary">Kembali</a>
                   </form>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   </div>
   <?php include 'view/template/script.php'; ?>
+  <script>
+    document.getElementById('tambah-fasilitas').addEventListener('click', function() {
+      const wrapper = document.getElementById('fasilitas-wrapper');
+      const div = document.createElement('div');
+      div.classList.add('input-group', 'mb-2');
+      div.innerHTML = `
+    <input type="text" name="nama_fasilitas[]" class="form-control" required>
+    <div class="input-group-append">
+      <button class="btn btn-danger remove-fasilitas" type="button">Hapus</button>
+    </div>
+  `;
+      wrapper.appendChild(div);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('remove-fasilitas')) {
+        e.target.closest('.input-group').remove();
+      }
+    });
+  </script>
+
 </body>
 
 </html>

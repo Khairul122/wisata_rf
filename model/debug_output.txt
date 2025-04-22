@@ -1,5 +1,0 @@
-
-C:\laragon\www\wisata_rf\controller>cd /d "C:\laragon\www\wisata_rf" 
-
-C:\laragon\www\wisata_rf>call .venv\Scripts\activate.bat 
-Rendah

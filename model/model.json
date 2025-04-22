@@ -6,11 +6,11 @@
     "jumlah_pengunjung",
     "jarak_ke_kota"
   ],
-  "jumlah_data_latih": 20,
+  "jumlah_data_latih": 24,
   "jumlah_data_uji": 6,
   "label_unik": [
     "Rendah",
-    "Tinggi",
-    "Sedang"
+    "Sedang",
+    "Tinggi"
   ]
 }

@@ -27,26 +27,64 @@
                         ?>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <label>Tahun</label>
-                      <input type="number" name="tahun" class="form-control" min="2000" max="2100" required>
+
+                    <label>Data Kunjungan</label>
+                    <div id="kunjungan-wrapper">
+                      <div class="row mb-2 kunjungan-item">
+                        <div class="col-md-5">
+                          <input type="number" name="tahun[]" class="form-control" placeholder="Tahun" min="2000" max="2100" required>
+                        </div>
+                        <div class="col-md-5">
+                          <input type="number" name="jumlah_pengunjung[]" class="form-control" placeholder="Jumlah Pengunjung" min="0" required>
+                        </div>
+                        <div class="col-md-2">
+                          <button type="button" class="btn btn-danger btn-block remove-kunjungan">Hapus</button>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group">
-                      <label>Jumlah Pengunjung</label>
-                      <input type="number" name="jumlah_pengunjung" class="form-control" min="0" required>
-                    </div>
+
+                    <button type="button" id="tambah-kunjungan" class="btn btn-primary btn-sm">+ Tambah Data Kunjungan</button>
+
+                    <hr>
                     <button type="submit" class="btn btn-success">Simpan</button>
                     <a href="index.php?page=kunjungan" class="btn btn-secondary">Kembali</a>
                   </form>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>  
+      </div>
     </div>
   </div>
   <?php include 'view/template/script.php'; ?>
+  <script>
+    document.getElementById('tambah-kunjungan').addEventListener('click', function() {
+      const wrapper = document.getElementById('kunjungan-wrapper');
+      const div = document.createElement('div');
+      div.classList.add('row', 'mb-2', 'kunjungan-item');
+      div.innerHTML = `
+    <div class="col-md-5">
+      <input type="number" name="tahun[]" class="form-control" placeholder="Tahun" min="2000" max="2100" required>
+    </div>
+    <div class="col-md-5">
+      <input type="number" name="jumlah_pengunjung[]" class="form-control" placeholder="Jumlah Pengunjung" min="0" required>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-danger btn-block remove-kunjungan">Hapus</button>
+    </div>
+  `;
+      wrapper.appendChild(div);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('remove-kunjungan')) {
+        e.target.closest('.kunjungan-item').remove();
+      }
+    });
+  </script>
+
 </body>
 
 </html>

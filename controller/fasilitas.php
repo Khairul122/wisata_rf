@@ -1,11 +1,12 @@
 <?php
 include __DIR__ . '/../koneksi.php';
 
-function getAllObjekWisata($conn) {
+function getAllObjekWisata($conn)
+{
     $objek_list = [];
     $query = "SELECT id_objek, nama_objek FROM objek_wisata ORDER BY nama_objek ASC";
     $result = $conn->query($query);
-    
+
     if ($result && $result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $objek_list[] = $row;
@@ -16,61 +17,70 @@ function getAllObjekWisata($conn) {
 
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'update') {
     include '../koneksi.php';
-    
+
     $id = mysqli_real_escape_string($conn, $_POST['id_fasilitas']);
     $id_objek = mysqli_real_escape_string($conn, $_POST['id_objek']);
     $nama_fasilitas = mysqli_real_escape_string($conn, $_POST['nama_fasilitas']);
-    
+
     $query = "UPDATE fasilitas 
               SET id_objek = ?, nama_fasilitas = ? 
               WHERE id_fasilitas = ?";
-    
+
     $stmt = $conn->prepare($query);
     $stmt->bind_param("isi", $id_objek, $nama_fasilitas, $id);
     $result = $stmt->execute();
     $stmt->close();
-    
-    $message = $result 
-              ? "Data fasilitas berhasil diperbarui" 
-              : "Gagal memperbarui data: " . $conn->error;
-    
+
+    $message = $result
+        ? "Data fasilitas berhasil diperbarui"
+        : "Gagal memperbarui data: " . $conn->error;
+
     echo "<script>alert('$message'); window.location.href = '../index.php?page=fasilitas';</script>";
     exit;
 }
 
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'tambah') {
     include '../koneksi.php';
-    
+
     $id_objek = mysqli_real_escape_string($conn, $_POST['id_objek']);
-    $nama_fasilitas = mysqli_real_escape_string($conn, $_POST['nama_fasilitas']);
-    
+    $nama_fasilitas_list = $_POST['nama_fasilitas'];
+
     $query = "INSERT INTO fasilitas (id_objek, nama_fasilitas) VALUES (?, ?)";
-    
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("is", $id_objek, $nama_fasilitas);
-    $result = $stmt->execute();
+
+    $berhasil = true;
+
+    foreach ($nama_fasilitas_list as $nama) {
+        $nama_sanitized = mysqli_real_escape_string($conn, $nama);
+        $stmt->bind_param("is", $id_objek, $nama_sanitized);
+        if (!$stmt->execute()) {
+            $berhasil = false;
+            break;
+        }
+    }
+
     $stmt->close();
-    
-    $message = $result 
-              ? "Fasilitas berhasil ditambahkan" 
-              : "Gagal menambahkan fasilitas: " . $conn->error;
-    
+
+    $message = $berhasil
+        ? "Semua fasilitas berhasil ditambahkan"
+        : "Gagal menambahkan salah satu fasilitas: " . $conn->error;
+
     echo "<script>alert('$message'); window.location.href = '../index.php?page=fasilitas';</script>";
     exit;
 }
 
 if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus') {
     $id = mysqli_real_escape_string($conn, $_GET['id']);
-    
+
     $stmt = $conn->prepare("DELETE FROM fasilitas WHERE id_fasilitas = ?");
     $stmt->bind_param("i", $id);
     $result = $stmt->execute();
     $stmt->close();
-    
-    $message = $result 
-              ? "Data berhasil dihapus" 
-              : "Gagal menghapus data: " . $conn->error;
-    
+
+    $message = $result
+        ? "Data berhasil dihapus"
+        : "Gagal menghapus data: " . $conn->error;
+
     echo "<script>alert('$message'); window.location.href = '../index.php?page=fasilitas';</script>";
     exit;
 }

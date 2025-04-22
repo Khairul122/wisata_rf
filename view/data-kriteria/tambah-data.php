@@ -12,8 +12,10 @@
             <div class="col-md-8 mx-auto">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Tambah Data Nilai Kriteria</h4>
+                  <h4 class="card-title">Input Data Kriteria Objek Wisata</h4>
                   <form action="controller/data-kriteria.php?aksi=insert" method="POST">
+                    
+                    <!-- Objek Wisata -->
                     <div class="form-group">
                       <label for="id_objek">Objek Wisata</label>
                       <select name="id_objek" id="id_objek" class="form-control" required>
@@ -28,22 +30,39 @@
                       </select>
                     </div>
 
+                    <!-- Total Fasilitas -->
                     <div class="form-group">
-                      <label for="id_kriteria">Kriteria</label>
-                      <select name="id_kriteria" id="id_kriteria" class="form-control" required>
-                        <option value="">-- Pilih Kriteria --</option>
-                        <?php
-                          $kriteria = mysqli_query($conn, "SELECT * FROM kriteria");
-                          while ($row = mysqli_fetch_assoc($kriteria)) {
-                            echo "<option value='".$row['id_kriteria']."'>".$row['nama_kriteria']."</option>";
-                          }
-                        ?>
+                      <label>Total Fasilitas</label>
+                      <input type="number" id="total_fasilitas" name="total_fasilitas" class="form-control" readonly>
+                    </div>
+
+                    <!-- Total Pengunjung -->
+                    <div class="form-group">
+                      <label>Total Pengunjung</label>
+                      <input type="number" id="total_pengunjung" name="total_pengunjung" class="form-control" readonly>
+                    </div>
+
+                    <!-- Akses Jalan (Dropdown) -->
+                    <div class="form-group">
+                      <label>Akses Jalan</label>
+                      <select name="akses_jalan" class="form-control" required>
+                        <option value="">-- Pilih Akses Jalan --</option>
+                        <option value="5">Mudah</option>
+                        <option value="3">Sedang</option>
+                        <option value="1">Sulit</option>
                       </select>
                     </div>
 
+                    <!-- Rating Pengunjung -->
                     <div class="form-group">
-                      <label for="nilai">Nilai</label>
-                      <input type="number" step="any" name="nilai" id="nilai" class="form-control" required>
+                      <label>Rating Pengunjung</label>
+                      <input type="number" step="any" name="rating_pengunjung" class="form-control" required>
+                    </div>
+
+                    <!-- Jarak ke Kota -->
+                    <div class="form-group">
+                      <label>Jarak ke Kota (KM)</label>
+                      <input type="number" step="any" name="jarak_ke_kota" class="form-control" required>
                     </div>
 
                     <button type="submit" class="btn btn-success">Simpan</button>
@@ -57,7 +76,27 @@
       </div> 
     </div>
   </div>
+
   <?php include 'view/template/script.php'; ?>
+
+  <!-- AJAX Script -->
+  <script>
+    document.getElementById('id_objek').addEventListener('change', function () {
+      var id_objek = this.value;
+
+      if (id_objek) {
+        fetch('controller/get_summary.php?id_objek=' + id_objek)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('total_fasilitas').value = data.total_fasilitas || 0;
+            document.getElementById('total_pengunjung').value = data.total_pengunjung || 0;
+          });
+      } else {
+        document.getElementById('total_fasilitas').value = '';
+        document.getElementById('total_pengunjung').value = '';
+      }
+    });
+  </script>
 </body>
 
 </html>
