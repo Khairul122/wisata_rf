@@ -36,16 +36,13 @@ pivot_df.reset_index(inplace=True)
 pivot_df['objek_wisata'] = pivot_df['id_objek'].map(objek_map)
 
 nilai_rata2 = pivot_df.drop(columns=['id_objek', 'objek_wisata']).mean(axis=1)
-min_nilai = nilai_rata2.min()
-max_nilai = nilai_rata2.max()
-range_nilai = max_nilai - min_nilai
-rendah_batas = min_nilai + range_nilai * (1/3)
-sedang_batas = min_nilai + range_nilai * (2/3)
+Q1 = nilai_rata2.quantile(0.25)
+Q3 = nilai_rata2.quantile(0.75)
 
 def kategorikan(nilai):
-    if nilai <= rendah_batas:
+    if nilai <= Q1:
         return 'Rendah'
-    elif nilai <= sedang_batas:
+    elif nilai <= Q3:
         return 'Sedang'
     else:
         return 'Tinggi'

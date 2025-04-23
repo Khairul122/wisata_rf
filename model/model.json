@@ -9,8 +9,8 @@
   "jumlah_data_latih": 24,
   "jumlah_data_uji": 6,
   "label_unik": [
-    "Rendah",
     "Sedang",
+    "Rendah",
     "Tinggi"
   ]
 }
