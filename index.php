@@ -1,8 +1,11 @@
 <?php
 session_start();
-$page = isset($_GET['page']) ? $_GET['page'] : 'login';
+$page = isset($_GET['page']) ? $_GET['page'] : 'profil';
 
 switch ($page) {
+  case 'profil':
+    include 'view/profile.php';
+    break;
   case 'login':
     include 'view/login.php';
     break;
@@ -12,7 +15,7 @@ switch ($page) {
   case 'home':
     include 'view/home.php';
     break;
-
+ 
   // Objek Wisata
   case 'objek_wisata':
     include 'view/objek-wisata/index.php';
