@@ -52,7 +52,13 @@ $menu = [
     'title' => 'Prediksi Potensi',
     'icon' => 'mdi-chart-areaspline',
     'url' => 'index.php?page=prediksi_tambah',
-    'level' => ['admin', 'user']
+    'level' => ['admin']
+  ],
+  [
+    'title' => 'Evaluasi',
+    'icon' => 'mdi-chart-areaspline',
+    'url' => 'index.php?page=evaluasi',
+    'level' => ['user']
   ]
 ];
 

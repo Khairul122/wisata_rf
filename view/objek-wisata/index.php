@@ -11,12 +11,12 @@
                     <div class="row">
                         <div class="col-12">
                             <?php include 'Controller/objek-wisata.php'; ?>
-                            <div class="card shadow-sm">
-                                <div class="card-body">
-                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
-                                        <h4 class="card-title text-primary mb-3 mb-md-0">Data Objek Wisata</h4>
-                                        <div class="d-flex flex-column flex-md-row gap-2">
-                                            <form method="GET" action="index.php" class="mb-3 mb-md-0">
+                            <div class="card shadow-sm border-0 rounded-4">
+                                <div class="card-body p-4">
+                                    <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+                                        <h4 class="text-primary fw-bold mb-0">Data Objek Wisata</h4>
+                                        <div class="d-flex flex-column flex-md-row gap-2 w-100 w-lg-auto">
+                                            <form method="GET" action="index.php" class="flex-grow-1">
                                                 <input type="hidden" name="page" value="objek_wisata">
                                                 <div class="input-group">
                                                     <input type="text" name="search" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" class="form-control" placeholder="Cari Nama Objek">
@@ -25,39 +25,33 @@
                                                     </button>
                                                 </div>
                                             </form>
-                                            <a href="index.php?page=objek_wisata_tambah" class="btn btn-primary d-flex align-items-center">
-                                                <i class="mdi mdi-plus-circle-outline me-1"></i>
-                                                Tambah Data
+                                            <a href="index.php?page=objek_wisata_tambah" class="btn btn-primary d-flex align-items-center justify-content-center">
+                                                <i class="mdi mdi-plus-circle-outline me-1"></i> Tambah Data
                                             </a>
                                         </div>
                                     </div>
 
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-striped">
+                                    <div class="table-responsive rounded-3 overflow-auto">
+                                        <table class="table table-hover align-middle table-striped">
                                             <thead class="bg-light">
                                                 <tr>
-                                                    <th class="text-center" width="5%">No</th>
-                                                    <th width="15%">Nama Objek</th>
-                                                    <th width="20%">Deskripsi</th>
-                                                    <th width="10%">Kecamatan</th>
-                                                    <th width="10%">Latitude</th>
-                                                    <th width="10%">Longitude</th>
-                                                    <th width="15%">Foto</th>
-                                                    <th class="text-center" width="15%">Aksi</th>
+                                                    <th class="text-center">No</th>
+                                                    <th>Nama Objek</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Kecamatan</th>
+                                                    <th>Latitude</th>
+                                                    <th>Longitude</th>
+                                                    <th>Foto</th>
+                                                    <th class="text-center">Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php if (count($data_wisata) > 0): ?>
-                                                    <?php $no = $offset + 1;
-                                                    foreach ($data_wisata as $row): ?>
+                                                    <?php $no = $offset + 1; foreach ($data_wisata as $row): ?>
                                                         <tr>
                                                             <td class="text-center"><?= $no++ ?></td>
                                                             <td class="fw-medium"><?= htmlspecialchars($row['nama_objek']) ?></td>
-                                                            <td>
-                                                                <div class="text-wrap">
-                                                                    <?= htmlspecialchars($row['deskripsi']) ?>
-                                                                </div>
-                                                            </td>
+                                                            <td class="text-wrap"><?= htmlspecialchars($row['deskripsi']) ?></td>
                                                             <td><?= htmlspecialchars($row['kecamatan']) ?></td>
                                                             <td><?= htmlspecialchars($row['latitude']) ?></td>
                                                             <td><?= htmlspecialchars($row['longitude']) ?></td>
@@ -69,7 +63,7 @@
                                                                 <?php endif; ?>
                                                             </td>
                                                             <td class="text-center">
-                                                                <div class="btn-group" role="group">
+                                                                <div class="btn-group">
                                                                     <a href="index.php?page=objek_wisata_edit&id=<?= $row['id_objek'] ?>" class="btn btn-warning btn-sm" data-bs-toggle="tooltip" title="Edit">
                                                                         <i class="mdi mdi-pencil"></i>
                                                                     </a>
@@ -84,7 +78,7 @@
                                                     <tr>
                                                         <td colspan="8" class="text-center py-4">
                                                             <div class="d-flex flex-column align-items-center">
-                                                                <i class="mdi mdi-alert-circle text-secondary" style="font-size: 3rem;"></i>
+                                                                <i class="mdi mdi-alert-circle text-secondary fs-1"></i>
                                                                 <p class="mt-2 mb-0">Tidak ada data yang ditemukan</p>
                                                                 <?php if (isset($_GET['search']) && !empty($_GET['search'])): ?>
                                                                     <p class="text-muted">Pencarian untuk "<?= htmlspecialchars($_GET['search']) ?>" tidak menghasilkan data</p>
@@ -99,29 +93,22 @@
                                     </div>
 
                                     <?php if ($totalPage > 1): ?>
-                                        <nav aria-label="Page navigation" class="mt-4">
+                                        <nav class="mt-4" aria-label="Page navigation">
                                             <ul class="pagination justify-content-end">
                                                 <?php if ($page > 1): ?>
                                                     <li class="page-item">
-                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page - 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Previous">
-                                                            <span aria-hidden="true">&laquo;</span>
-                                                        </a>
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page - 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">&laquo;</a>
                                                     </li>
                                                 <?php endif; ?>
 
                                                 <?php
                                                 $startPage = max(1, min($page - 2, $totalPage - 4));
                                                 $endPage = min($totalPage, max($page + 2, 5));
+                                                ?>
 
-                                                if ($startPage > 1): ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="index.php?page=objek_wisata&p=1&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">1</a>
-                                                    </li>
-                                                    <?php if ($startPage > 2): ?>
-                                                        <li class="page-item disabled">
-                                                            <span class="page-link">...</span>
-                                                        </li>
-                                                    <?php endif; ?>
+                                                <?php if ($startPage > 1): ?>
+                                                    <li class="page-item"><a class="page-link" href="index.php?page=objek_wisata&p=1&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">1</a></li>
+                                                    <?php if ($startPage > 2): ?><li class="page-item disabled"><span class="page-link">...</span></li><?php endif; ?>
                                                 <?php endif; ?>
 
                                                 <?php for ($i = $startPage; $i <= $endPage; $i++): ?>
@@ -131,21 +118,13 @@
                                                 <?php endfor; ?>
 
                                                 <?php if ($endPage < $totalPage): ?>
-                                                    <?php if ($endPage < $totalPage - 1): ?>
-                                                        <li class="page-item disabled">
-                                                            <span class="page-link">...</span>
-                                                        </li>
-                                                    <?php endif; ?>
-                                                    <li class="page-item">
-                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $totalPage ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $totalPage ?></a>
-                                                    </li>
+                                                    <?php if ($endPage < $totalPage - 1): ?><li class="page-item disabled"><span class="page-link">...</span></li><?php endif; ?>
+                                                    <li class="page-item"><a class="page-link" href="index.php?page=objek_wisata&p=<?= $totalPage ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>"><?= $totalPage ?></a></li>
                                                 <?php endif; ?>
 
                                                 <?php if ($page < $totalPage): ?>
                                                     <li class="page-item">
-                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page + 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" aria-label="Next">
-                                                            <span aria-hidden="true">&raquo;</span>
-                                                        </a>
+                                                        <a class="page-link" href="index.php?page=objek_wisata&p=<?= $page + 1 ?>&search=<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">&raquo;</a>
                                                     </li>
                                                 <?php endif; ?>
                                             </ul>
@@ -177,12 +156,10 @@
     <?php include 'view/template/script.php'; ?>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             tooltipTriggerList.map(function(tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
-
             const tableWrapper = document.querySelector('.table-responsive');
             if (tableWrapper) {
                 tableWrapper.style.overflowX = window.innerWidth < 992 ? 'auto' : 'visible';
@@ -198,13 +175,11 @@
             modalImage.src = src;
             modalImage.alt = "Foto " + title;
             modalTitle.textContent = title;
-
             const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
             imageModal.show();
-
-            modalImage.classList.add('animate__animated', 'animate__zoomIn');
+            modalImage.classList.add('animate_animated', 'animate_zoomIn');
             modalImage.addEventListener('animationend', function() {
-                modalImage.classList.remove('animate__animated', 'animate__zoomIn');
+                modalImage.classList.remove('animate_animated', 'animate_zoomIn');
             });
         }
     </script>

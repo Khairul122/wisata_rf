@@ -8,7 +8,6 @@
           <div class="col-lg-6 mx-auto">
             <div class="auth-form-light text-left p-5">
               <div class="brand-logo text-center mb-4">
-                <img src="assets/images/logo.svg" alt="logo">
               </div>
               <h4 class="text-center">Buat Akun Baru</h4>
               <form class="pt-3" action="controller/auth.php" method="POST">

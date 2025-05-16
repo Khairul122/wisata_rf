@@ -237,8 +237,7 @@
                     <p>Kopi bukan hanya komoditas ekonomi, tetapi juga bagian dari budaya masyarakat Gayo. Ritual minum kopi menjadi tradisi yang mengikat hubungan sosial.</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
-                         alt="Budaya Gayo" class="img-fluid rounded shadow">
+                <img src="uploads/tari saman.jpeg" alt="Tari Saman" class="img-fluid rounded shadow" style="width: 90%;">
                 </div>
             </div>
         </div>
@@ -255,9 +254,9 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5>Kontak</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Jl. Merdeka No. 1, Blangkejeren</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Jl. kongbur No. 1, Blangkejeren</li>
                         <li><i class="fas fa-phone me-2"></i> (0643) 21001</li>
-                        <li><i class="fas fa-envelope me-2"></i> info@wisatagayolues.id</li>
+                        <li><i class="fas fa-envelope me-2"></i> dispar@wisatagayolues.id</li>
                     </ul>
                 </div>
                 <div class="col-md-4">

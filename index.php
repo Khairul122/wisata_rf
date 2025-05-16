@@ -87,6 +87,9 @@ switch ($page) {
   case 'hasil_prediksi':
     include 'view/latih-data/hasil-data.php';
     break;
+  case 'evaluasi':
+    include 'view/prediksi/grafik.php';
+    break;
 
   // Controller
   case 'auth':

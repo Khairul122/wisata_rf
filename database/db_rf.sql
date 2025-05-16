@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 18, 2025 at 08:11 PM
--- Server version: 8.0.30
--- PHP Version: 7.4.1
+-- Host: 127.0.0.1
+-- Generation Time: May 14, 2025 at 03:38 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,147 +28,167 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `data_kriteria` (
-  `id_data_kriteria` int NOT NULL,
-  `id_objek` int NOT NULL,
-  `id_kriteria` int NOT NULL,
-  `nilai` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_data_kriteria` int(11) NOT NULL,
+  `id_objek` int(11) NOT NULL,
+  `id_kriteria` int(11) NOT NULL,
+  `nilai` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `data_kriteria`
 --
 
 INSERT INTO `data_kriteria` (`id_data_kriteria`, `id_objek`, `id_kriteria`, `nilai`) VALUES
-(2, 26, 1, '8'),
-(3, 27, 1, '5'),
-(4, 28, 1, '9'),
-(5, 29, 1, '2'),
-(6, 30, 1, '6'),
-(7, 31, 1, '8'),
-(8, 32, 1, '8'),
-(9, 33, 1, '7'),
-(10, 34, 1, '7'),
-(11, 35, 1, '6'),
-(12, 36, 1, '7'),
-(13, 37, 1, '8'),
-(14, 38, 1, '7'),
-(15, 39, 1, '8'),
-(16, 40, 1, '8'),
-(17, 41, 1, '7'),
-(18, 42, 1, '8'),
-(19, 43, 1, '8'),
-(20, 44, 1, '8'),
-(21, 45, 1, '1'),
-(22, 46, 1, '2'),
-(23, 47, 1, '4'),
-(24, 48, 1, '1'),
-(25, 49, 1, '7'),
-(26, 50, 1, '7'),
-(27, 55, 1, '8'),
-(28, 26, 2, '5'),
-(29, 27, 2, '1'),
-(30, 28, 2, '3'),
-(31, 29, 2, '3'),
-(32, 30, 2, '1'),
-(33, 31, 2, '1'),
-(34, 32, 2, '3'),
-(35, 33, 2, '5'),
-(36, 34, 2, '3'),
-(37, 35, 2, '5'),
-(38, 36, 2, '3'),
-(39, 37, 2, '5'),
-(40, 38, 2, '3'),
-(41, 39, 2, '5'),
-(42, 40, 2, '1'),
-(43, 41, 2, '1'),
-(44, 42, 2, '5'),
-(45, 43, 2, '3'),
-(46, 44, 2, '3'),
-(47, 45, 2, '5'),
-(48, 46, 2, '1'),
-(49, 47, 2, '1'),
-(50, 48, 2, '5'),
-(51, 49, 2, '3'),
-(52, 50, 2, '5'),
-(53, 55, 2, '3'),
-(54, 26, 3, '4.8'),
-(55, 27, 3, '5.0'),
-(56, 28, 3, '4.0'),
-(57, 29, 3, '4.4'),
-(58, 30, 3, '4.3'),
-(59, 31, 3, '4.7'),
-(60, 32, 3, '4.4'),
-(61, 33, 3, '4.3'),
-(62, 34, 3, '4.0'),
-(63, 35, 3, '3.4'),
+(11, 26, 1, '8'),
+(12, 26, 4, '11517'),
+(13, 26, 2, '5'),
+(14, 26, 3, '4.8'),
+(15, 26, 6, '6.1'),
+(16, 27, 1, '5'),
+(17, 27, 4, '942'),
+(18, 27, 2, '3'),
+(19, 27, 3, '5'),
+(20, 27, 6, '35.9'),
+(21, 28, 1, '8'),
+(22, 28, 4, '24830'),
+(23, 28, 2, '3'),
+(24, 28, 3, '4'),
+(25, 28, 6, '5.4'),
+(26, 29, 1, '2'),
+(27, 29, 4, '6292'),
+(28, 29, 2, '1'),
+(29, 29, 3, '4.4'),
+(30, 29, 6, '15.7'),
+(31, 30, 1, '6'),
+(32, 30, 4, '9187'),
+(33, 30, 2, '1'),
+(34, 30, 3, '4.3'),
+(35, 30, 6, '15.6'),
+(36, 31, 1, '8'),
+(37, 31, 4, '12234'),
+(38, 31, 2, '3'),
+(39, 31, 3, '4.7'),
+(40, 31, 6, '15.2'),
+(41, 32, 1, '8'),
+(42, 32, 4, '19082'),
+(43, 32, 2, '5'),
+(44, 32, 3, '4.4'),
+(45, 32, 6, '3.3'),
+(46, 33, 1, '7'),
+(47, 33, 4, '2360'),
+(48, 33, 2, '3'),
+(49, 33, 3, '4.3'),
+(50, 33, 6, '36.7'),
+(51, 34, 1, '7'),
+(52, 34, 4, '2474'),
+(53, 34, 2, '5'),
+(54, 34, 3, '4'),
+(55, 34, 6, '44.3'),
+(56, 35, 1, '6'),
+(57, 35, 4, '1665'),
+(58, 35, 2, '3'),
+(59, 35, 3, '3.4'),
+(60, 35, 6, '15.4'),
+(61, 36, 1, '7'),
+(62, 36, 4, '54876'),
+(63, 36, 2, '5'),
 (64, 36, 3, '4.8'),
-(65, 37, 3, '5.0'),
-(66, 38, 3, '4.0'),
-(67, 39, 3, '4.5'),
-(68, 40, 3, '4.4'),
-(69, 41, 3, '3.9'),
-(70, 42, 3, '4.1'),
-(71, 43, 3, '5.0'),
-(72, 44, 3, '4.1'),
-(73, 45, 3, '4.0'),
-(74, 46, 3, '4.0'),
-(75, 47, 3, '3.9'),
-(76, 48, 3, '3.0'),
-(77, 49, 3, '4.0'),
-(78, 50, 3, '4.0'),
-(79, 55, 3, '3.5'),
-(80, 26, 4, '11517'),
-(81, 27, 4, '942'),
-(82, 28, 4, '108620'),
-(83, 29, 4, '6292'),
-(84, 30, 4, '9187'),
-(85, 31, 4, '12234'),
-(86, 32, 4, '19082'),
-(87, 33, 4, '2360'),
-(88, 34, 4, '2474'),
-(89, 35, 4, '1665'),
-(90, 36, 4, '54876'),
-(91, 37, 4, '25005'),
-(92, 38, 4, '6046'),
-(93, 39, 4, '1199'),
-(94, 40, 4, '42369'),
-(95, 41, 4, '7525'),
-(96, 42, 4, '30626'),
+(65, 36, 6, '0.5'),
+(66, 37, 1, '8'),
+(67, 37, 4, '25005'),
+(68, 37, 2, '3'),
+(69, 37, 3, '5'),
+(70, 37, 6, '22'),
+(71, 38, 1, '7'),
+(72, 38, 4, '6046'),
+(73, 38, 2, '5'),
+(74, 38, 3, '4'),
+(75, 38, 6, '7.5'),
+(76, 39, 1, '8'),
+(77, 39, 4, '1199'),
+(78, 39, 2, '1'),
+(79, 39, 3, '4.5'),
+(80, 39, 6, '20'),
+(81, 40, 1, '8'),
+(82, 40, 4, '84738'),
+(83, 40, 2, '3'),
+(84, 40, 3, '4.4'),
+(85, 40, 6, '47.8'),
+(86, 41, 1, '7'),
+(87, 41, 4, '7525'),
+(88, 41, 2, '5'),
+(89, 41, 3, '3.9'),
+(90, 41, 6, '6.1'),
+(91, 42, 1, '8'),
+(92, 42, 4, '30626'),
+(93, 42, 2, '5'),
+(94, 42, 3, '4.1'),
+(95, 42, 6, '15'),
+(96, 43, 1, '8'),
 (97, 43, 4, '375'),
-(98, 44, 4, '5741'),
-(99, 45, 4, '1343'),
-(100, 46, 4, '2524'),
-(101, 47, 4, '1224'),
-(102, 48, 4, '933'),
-(103, 49, 4, '610'),
-(104, 50, 4, '2689'),
-(105, 55, 4, '1927'),
-(106, 26, 6, '6.1'),
-(107, 27, 6, '35.9'),
-(108, 28, 6, '5.4'),
-(109, 29, 6, '15.7'),
-(110, 30, 6, '15.6'),
-(111, 31, 6, '15.2'),
-(112, 32, 6, '3.3'),
-(113, 33, 6, '36.7'),
-(114, 34, 6, '44.3'),
-(115, 35, 6, '15.4'),
-(116, 36, 6, '0.5'),
-(117, 37, 6, '22.0'),
-(118, 38, 6, '7.5'),
-(119, 39, 6, '47.8'),
-(120, 40, 6, '47.8'),
-(121, 41, 6, '6.1'),
-(122, 42, 6, '15.0'),
-(123, 43, 6, '6.0'),
-(124, 44, 6, '3.6'),
-(125, 45, 6, '26.0'),
-(126, 46, 6, '21.0'),
-(127, 47, 6, '2.4'),
-(128, 48, 6, '9.4'),
-(129, 49, 6, '5.9'),
-(130, 50, 6, '4.2'),
-(131, 55, 6, '4.5');
+(98, 43, 2, '3'),
+(99, 43, 3, '5'),
+(100, 43, 6, '6'),
+(101, 44, 1, '8'),
+(102, 44, 4, '5741'),
+(103, 44, 2, '5'),
+(104, 44, 3, '4.1'),
+(105, 44, 6, '3.6'),
+(106, 45, 1, '1'),
+(107, 45, 4, '1343'),
+(108, 45, 2, '1'),
+(109, 45, 3, '4'),
+(110, 45, 6, '26'),
+(111, 46, 1, '2'),
+(112, 46, 4, '2524'),
+(113, 46, 2, '1'),
+(114, 46, 3, '3.5'),
+(115, 46, 6, '21'),
+(116, 47, 1, '4'),
+(117, 47, 4, '1224'),
+(118, 47, 2, '5'),
+(119, 47, 3, '3.9'),
+(120, 47, 6, '2.4'),
+(121, 48, 1, '1'),
+(122, 48, 4, '933'),
+(123, 48, 2, '3'),
+(124, 48, 3, '3'),
+(125, 48, 6, '9.2'),
+(126, 49, 1, '7'),
+(127, 49, 4, '610'),
+(128, 49, 2, '5'),
+(129, 49, 3, '4.5'),
+(130, 49, 6, '5.9'),
+(131, 50, 1, '7'),
+(132, 50, 4, '2464'),
+(133, 50, 2, '3'),
+(134, 50, 3, '4.2'),
+(135, 50, 6, '10.2'),
+(136, 56, 1, '3'),
+(137, 56, 4, '1318'),
+(138, 56, 2, '3'),
+(139, 56, 3, '4.7'),
+(140, 56, 6, '5.6'),
+(141, 57, 1, '4'),
+(142, 57, 4, '3195'),
+(143, 57, 2, '3'),
+(144, 57, 3, '4.6'),
+(145, 57, 6, '14.5'),
+(146, 58, 1, '5'),
+(147, 58, 4, '153000'),
+(148, 58, 2, '5'),
+(149, 58, 3, '4.1'),
+(150, 58, 6, '5.6'),
+(151, 59, 1, '4'),
+(152, 59, 4, '352'),
+(153, 59, 2, '1'),
+(154, 59, 3, '3.7'),
+(155, 59, 6, '22.4'),
+(156, 55, 1, '8'),
+(157, 55, 4, '1927'),
+(158, 55, 2, '1'),
+(159, 55, 3, '3.5'),
+(160, 55, 6, '12.8');
 
 -- --------------------------------------------------------
 
@@ -177,10 +197,10 @@ INSERT INTO `data_kriteria` (`id_data_kriteria`, `id_objek`, `id_kriteria`, `nil
 --
 
 CREATE TABLE `fasilitas` (
-  `id_fasilitas` int NOT NULL,
-  `id_objek` int NOT NULL,
-  `nama_fasilitas` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_fasilitas` int(11) NOT NULL,
+  `id_objek` int(11) NOT NULL,
+  `nama_fasilitas` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `fasilitas`
@@ -350,7 +370,23 @@ INSERT INTO `fasilitas` (`id_fasilitas`, `id_objek`, `nama_fasilitas`) VALUES
 (670, 50, 'tempat sampah'),
 (671, 50, 'warung makan'),
 (672, 50, 'pusat informasi'),
-(673, 50, 'spot poto');
+(673, 50, 'spot poto'),
+(675, 56, 'Parkir'),
+(676, 56, 'Toilet'),
+(677, 56, 'Warung Makan'),
+(678, 57, 'Parkir'),
+(679, 57, 'Toilet'),
+(680, 57, 'Tempat Sampah'),
+(681, 57, 'Spot Foto'),
+(682, 58, 'Parkir'),
+(683, 58, 'Toilet'),
+(684, 58, 'Tempat Sampah'),
+(685, 58, 'Pusat Informasi'),
+(686, 58, 'Spot Foto'),
+(687, 59, 'Parkir'),
+(688, 59, 'Toilet'),
+(689, 59, 'Warung Makan'),
+(690, 59, 'Spot Foto');
 
 -- --------------------------------------------------------
 
@@ -359,21 +395,11 @@ INSERT INTO `fasilitas` (`id_fasilitas`, `id_objek`, `nama_fasilitas`) VALUES
 --
 
 CREATE TABLE `hasil_prediksi` (
-  `id_prediksi` int NOT NULL,
-  `tanggal` datetime DEFAULT CURRENT_TIMESTAMP,
-  `hasil` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `id_objek` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
-
---
--- Dumping data for table `hasil_prediksi`
---
-
-INSERT INTO `hasil_prediksi` (`id_prediksi`, `tanggal`, `hasil`, `id_objek`) VALUES
-(9, '2025-04-19 01:27:33', 'Rendah', 28),
-(10, '2025-04-19 02:54:21', 'Rendah', 28),
-(11, '2025-04-19 02:55:17', 'Rendah', 46),
-(12, '2025-04-19 02:55:43', 'Rendah', 40);
+  `id_prediksi` int(11) NOT NULL,
+  `tanggal` datetime DEFAULT current_timestamp(),
+  `hasil` varchar(100) NOT NULL,
+  `id_objek` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -382,13 +408,13 @@ INSERT INTO `hasil_prediksi` (`id_prediksi`, `tanggal`, `hasil`, `id_objek`) VAL
 --
 
 CREATE TABLE `kriteria` (
-  `id_kriteria` int NOT NULL,
-  `nama_kriteria` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `penjelasan` text COLLATE utf8mb3_swedish_ci NOT NULL,
-  `arah_potensi` varchar(10) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `satuan` varchar(50) COLLATE utf8mb3_swedish_ci DEFAULT NULL,
-  `bobot` float DEFAULT '1'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_kriteria` int(11) NOT NULL,
+  `nama_kriteria` varchar(100) NOT NULL,
+  `penjelasan` text NOT NULL,
+  `arah_potensi` varchar(10) NOT NULL,
+  `satuan` varchar(50) DEFAULT NULL,
+  `bobot` float DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `kriteria`
@@ -408,95 +434,141 @@ INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`, `penjelasan`, `arah_pote
 --
 
 CREATE TABLE `kunjungan_wisata` (
-  `id_kunjungan` int NOT NULL,
-  `id_objek` int NOT NULL,
-  `tahun` year NOT NULL,
-  `jumlah_pengunjung` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_kunjungan` int(11) NOT NULL,
+  `id_objek` int(11) NOT NULL,
+  `tahun` year(4) NOT NULL,
+  `jumlah_pengunjung` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `kunjungan_wisata`
 --
 
 INSERT INTO `kunjungan_wisata` (`id_kunjungan`, `id_objek`, `tahun`, `jumlah_pengunjung`) VALUES
-(1, 26, 2022, 1250),
-(2, 26, 2023, 1580),
-(3, 26, 2024, 1875),
-(4, 27, 2022, 3420),
-(5, 27, 2023, 4150),
-(6, 27, 2024, 5680),
-(7, 28, 2022, 2340),
-(8, 28, 2023, 2780),
-(9, 28, 2024, 3150),
-(10, 29, 2022, 980),
-(11, 29, 2023, 1120),
-(12, 29, 2024, 1350),
-(13, 30, 2022, 1150),
-(14, 30, 2023, 1420),
-(15, 30, 2024, 1680),
-(16, 31, 2022, 1850),
-(17, 31, 2023, 2240),
-(18, 31, 2024, 2560),
-(19, 32, 2022, 4650),
-(20, 32, 2023, 5320),
-(21, 32, 2024, 6780),
-(22, 33, 2022, 2150),
-(23, 33, 2023, 2580),
-(24, 33, 2024, 3120),
-(25, 34, 2022, 1580),
-(26, 34, 2023, 1920),
-(27, 34, 2024, 2350),
-(28, 35, 2022, 3250),
-(29, 35, 2023, 3780),
-(30, 35, 2024, 4520),
-(31, 36, 2022, 1420),
-(32, 36, 2023, 1680),
-(33, 36, 2024, 1950),
-(34, 37, 2022, 3850),
-(35, 37, 2023, 4320),
-(36, 37, 2024, 5150),
-(37, 38, 2022, 2150),
-(38, 38, 2023, 2580),
-(39, 38, 2024, 2950),
-(40, 39, 2022, 7820),
-(41, 39, 2023, 8650),
-(42, 39, 2024, 9750),
-(43, 40, 2022, 3450),
-(44, 40, 2023, 4120),
-(45, 40, 2024, 4850),
-(46, 41, 2022, 4250),
-(47, 41, 2023, 5120),
-(48, 41, 2024, 6350),
-(49, 42, 2022, 3650),
-(50, 42, 2023, 4280),
-(51, 42, 2024, 5150),
-(52, 43, 2022, 2980),
-(53, 43, 2023, 3450),
-(54, 43, 2024, 4120),
-(55, 44, 2022, 2150),
-(56, 44, 2023, 2580),
-(57, 44, 2024, 3120),
-(58, 45, 2022, 1850),
-(59, 45, 2023, 2240),
-(60, 45, 2024, 2680),
-(61, 46, 2022, 2350),
-(62, 46, 2023, 2780),
-(63, 46, 2024, 3450),
-(64, 47, 2022, 3250),
-(65, 47, 2023, 3680),
-(66, 47, 2024, 4150),
-(67, 48, 2022, 950),
-(68, 48, 2023, 1150),
-(69, 48, 2024, 1320),
-(70, 49, 2022, 3150),
-(71, 49, 2023, 3850),
-(72, 49, 2024, 4620),
-(73, 50, 2022, 2580),
-(74, 50, 2023, 3120),
-(75, 50, 2024, 3850),
-(76, 55, 2022, 2150),
-(77, 55, 2023, 2680),
-(78, 55, 2024, 3250);
+(1, 28, '2021', 3000),
+(2, 28, '2022', 9310),
+(3, 28, '2023', 7320),
+(4, 28, '2024', 5200),
+(5, 46, '2021', 851),
+(6, 46, '2022', 732),
+(7, 46, '2023', 636),
+(8, 46, '2024', 305),
+(9, 40, '2021', 8654),
+(10, 40, '2022', 7062),
+(11, 40, '2023', 16455),
+(12, 40, '2024', 10198),
+(13, 26, '2021', 1600),
+(14, 26, '2022', 3705),
+(15, 26, '2023', 4242),
+(16, 26, '2024', 1970),
+(17, 27, '2021', 0),
+(18, 27, '2022', 0),
+(19, 27, '2023', 202),
+(20, 27, '2024', 740),
+(21, 29, '2021', 643),
+(22, 29, '2022', 5316),
+(23, 29, '2023', 210),
+(24, 29, '2024', 123),
+(25, 30, '2021', 1025),
+(26, 30, '2022', 7212),
+(27, 30, '2023', 530),
+(28, 30, '2024', 420),
+(29, 31, '2021', 1020),
+(30, 31, '2022', 786),
+(31, 31, '2023', 7718),
+(32, 31, '2024', 2710),
+(33, 32, '2021', 1250),
+(34, 32, '2022', 1462),
+(35, 32, '2023', 10560),
+(36, 32, '2024', 5810),
+(37, 33, '2021', 420),
+(38, 33, '2022', 585),
+(39, 33, '2023', 625),
+(40, 33, '2024', 730),
+(41, 34, '2021', 240),
+(42, 34, '2022', 478),
+(43, 34, '2023', 792),
+(44, 34, '2024', 964),
+(45, 35, '2021', 390),
+(46, 35, '2022', 537),
+(47, 35, '2023', 420),
+(48, 35, '2024', 318),
+(49, 36, '2021', 16421),
+(50, 36, '2022', 14025),
+(51, 36, '2023', 12790),
+(52, 36, '2024', 11640),
+(53, 37, '2021', 1298),
+(54, 37, '2022', 9930),
+(55, 37, '2023', 7375),
+(56, 37, '2024', 6402),
+(57, 38, '2021', 2567),
+(58, 38, '2022', 1589),
+(59, 38, '2023', 1230),
+(60, 38, '2024', 660),
+(61, 39, '2021', 247),
+(62, 39, '2022', 364),
+(63, 39, '2023', 318),
+(64, 39, '2024', 270),
+(65, 40, '2021', 8654),
+(66, 40, '2022', 7062),
+(67, 40, '2023', 16455),
+(68, 40, '2024', 10198),
+(69, 41, '2021', 1021),
+(70, 41, '2022', 993),
+(71, 41, '2023', 3085),
+(72, 41, '2024', 2426),
+(73, 42, '2021', 8654),
+(74, 42, '2022', 7872),
+(75, 42, '2023', 9010),
+(76, 42, '2024', 5090),
+(77, 43, '2021', 180),
+(78, 43, '2022', 113),
+(79, 43, '2023', 40),
+(80, 43, '2024', 42),
+(81, 44, '2021', 1765),
+(82, 44, '2022', 1231),
+(83, 44, '2023', 1860),
+(84, 44, '2024', 885),
+(85, 45, '2021', 512),
+(86, 45, '2022', 330),
+(87, 45, '2023', 343),
+(88, 45, '2024', 158),
+(89, 47, '2021', 421),
+(90, 47, '2022', 362),
+(91, 47, '2023', 413),
+(92, 47, '2024', 28),
+(93, 48, '2021', 271),
+(94, 48, '2022', 257),
+(95, 48, '2023', 253),
+(96, 48, '2024', 152),
+(97, 49, '2021', 160),
+(98, 49, '2022', 210),
+(99, 49, '2023', 140),
+(100, 49, '2024', 100),
+(101, 50, '2021', 0),
+(102, 50, '2022', 654),
+(103, 50, '2023', 870),
+(104, 50, '2024', 940),
+(105, 55, '2021', 537),
+(106, 55, '2022', 400),
+(107, 55, '2023', 478),
+(108, 55, '2024', 512),
+(109, 56, '2021', 0),
+(110, 56, '2022', 0),
+(111, 56, '2023', 710),
+(112, 56, '2024', 608),
+(113, 57, '2021', 0),
+(114, 57, '2022', 530),
+(115, 57, '2023', 1830),
+(116, 57, '2024', 835),
+(117, 58, '2021', 0),
+(118, 58, '2022', 40000),
+(119, 58, '2023', 113000),
+(120, 58, '2024', 0),
+(121, 59, '2021', 0),
+(122, 59, '2022', 187),
+(123, 59, '2023', 140),
+(124, 59, '2024', 25);
 
 -- --------------------------------------------------------
 
@@ -505,25 +577,35 @@ INSERT INTO `kunjungan_wisata` (`id_kunjungan`, `id_objek`, `tahun`, `jumlah_pen
 --
 
 CREATE TABLE `log_model` (
-  `id_model` int NOT NULL,
+  `id_model` int(11) NOT NULL,
   `tanggal_latih` date NOT NULL,
   `akurasi` decimal(5,4) DEFAULT NULL,
   `presisi` decimal(5,4) DEFAULT NULL,
   `recal` decimal(5,4) DEFAULT NULL,
   `f1_score` decimal(5,4) DEFAULT NULL,
-  `jumlah_pohon` int DEFAULT NULL,
-  `fitur_terpenting` text COLLATE utf8mb3_swedish_ci,
-  `conf_matrix_json` text COLLATE utf8mb3_swedish_ci,
-  `parameter_model` text COLLATE utf8mb3_swedish_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `jumlah_pohon` int(11) DEFAULT NULL,
+  `fitur_terpenting` text DEFAULT NULL,
+  `conf_matrix_json` text DEFAULT NULL,
+  `parameter_model` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `log_model`
 --
 
 INSERT INTO `log_model` (`id_model`, `tanggal_latih`, `akurasi`, `presisi`, `recal`, `f1_score`, `jumlah_pohon`, `fitur_terpenting`, `conf_matrix_json`, `parameter_model`) VALUES
-(6, '2025-04-19', '1.0000', '1.0000', '1.0000', '1.0000', 100, '{\"Fasilitas\": 0.1639027359280484, \"Akses Jalan\": 0.04766457425493512, \"Rating Pengunjung\": 0.05646881233991183, \"Jumlah Pengunjung\": 0.4925195282112053, \"Jarak ke Kota\": 0.2394443492658993}', '[[6]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
-(7, '2025-04-19', '1.0000', '1.0000', '1.0000', '1.0000', 100, '{\"fasilitas\": 0.1639027359280484, \"akses_jalan\": 0.04766457425493512, \"rating_pengunjung\": 0.05646881233991183, \"jumlah_pengunjung\": 0.4925195282112053, \"jarak_ke_kota\": 0.2394443492658993}', '[[6, 0, 0], [0, 0, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}');
+(9, '2025-04-23', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.047834931765592795, \"akses_jalan\": 0.0407155421924506, \"rating_pengunjung\": 0.07987047309374523, \"jumlah_pengunjung\": 0.5096265461499314, \"jarak_ke_kota\": 0.32195250679827997}', '[[6, 0, 0], [0, 0, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(10, '2025-04-23', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.0, \"akses_jalan\": 0.0, \"rating_pengunjung\": 0.0, \"jumlah_pengunjung\": 0.0, \"jarak_ke_kota\": 0.0}', '[[0, 0, 0], [0, 0, 0], [0, 0, 6]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(11, '2025-04-23', 0.8333, 0.8750, 0.8333, 0.8286, 100, '{\"fasilitas\": 0.17167694772906217, \"akses_jalan\": 0.24072269766698237, \"rating_pengunjung\": 0.16655328742461153, \"jumlah_pengunjung\": 0.23929591159571603, \"jarak_ke_kota\": 0.18175115558362798}', '[[2, 1, 0], [0, 3, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(12, '2025-04-23', 0.8333, 0.8750, 0.8333, 0.8286, 100, '{\"fasilitas\": 0.18518328868298087, \"akses_jalan\": 0.2518439795178533, \"rating_pengunjung\": 0.16800256263725927, \"jumlah_pengunjung\": 0.26213226819042623, \"jarak_ke_kota\": 0.1328379009714803}', '[[2, 1, 0], [0, 3, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(13, '2025-04-23', 0.5000, 0.3333, 0.3889, 0.3556, 100, '{\"fasilitas\": 0.13789226699400006, \"akses_jalan\": 0.1739534947933112, \"rating_pengunjung\": 0.189940683030925, \"jumlah_pengunjung\": 0.3179924453274151, \"jarak_ke_kota\": 0.18022110985434858}', '[[2, 0, 1], [0, 0, 1], [1, 0, 1]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(14, '2025-04-23', 0.5000, 0.3333, 0.3889, 0.3556, 100, '{\"fasilitas\": 0.13789226699400006, \"akses_jalan\": 0.1739534947933112, \"rating_pengunjung\": 0.189940683030925, \"jumlah_pengunjung\": 0.3179924453274151, \"jarak_ke_kota\": 0.18022110985434858}', '[[2, 0, 1], [0, 0, 1], [1, 0, 1]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(15, '2025-04-23', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.0, \"akses_jalan\": 0.0, \"rating_pengunjung\": 0.0, \"jumlah_pengunjung\": 0.0, \"jarak_ke_kota\": 0.0}', '[[6]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(16, '2025-04-23', 0.6667, 0.6667, 0.6667, 0.6667, 100, '{\"fasilitas\": 0.16431535759510382, \"akses_jalan\": 0.047443013217554154, \"rating_pengunjung\": 0.12354091379424058, \"jumlah_pengunjung\": 0.5672534954176275, \"jarak_ke_kota\": 0.09744721997547395}', '[[0, 0, 0], [0, 2, 1], [0, 1, 2]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(17, '2025-04-23', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.047834931765592795, \"akses_jalan\": 0.0407155421924506, \"rating_pengunjung\": 0.07987047309374523, \"jumlah_pengunjung\": 0.5096265461499314, \"jarak_ke_kota\": 0.32195250679827997}', '[[6, 0, 0], [0, 0, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(18, '2025-04-23', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.12934403693038873, \"akses_jalan\": 0.061154662972149595, \"rating_pengunjung\": 0.1304067402751902, \"jumlah_pengunjung\": 0.5750885464488311, \"jarak_ke_kota\": 0.10400601337344034}', '[[2, 0, 0], [0, 4, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(19, '2025-05-10', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.12934403693038873, \"akses_jalan\": 0.061154662972149595, \"rating_pengunjung\": 0.1304067402751902, \"jumlah_pengunjung\": 0.5750885464488311, \"jarak_ke_kota\": 0.10400601337344034}', '[[2, 0, 0], [0, 4, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}'),
+(20, '2025-05-14', 1.0000, 1.0000, 1.0000, 1.0000, 100, '{\"fasilitas\": 0.12934403693038873, \"akses_jalan\": 0.061154662972149595, \"rating_pengunjung\": 0.1304067402751902, \"jumlah_pengunjung\": 0.5750885464488311, \"jarak_ke_kota\": 0.10400601337344034}', '[[2, 0, 0], [0, 4, 0], [0, 0, 0]]', '{\"bootstrap\": \"True\", \"ccp_alpha\": \"0.0\", \"class_weight\": \"None\", \"criterion\": \"gini\", \"max_depth\": \"None\", \"max_features\": \"sqrt\", \"max_leaf_nodes\": \"None\", \"max_samples\": \"None\", \"min_impurity_decrease\": \"0.0\", \"min_samples_leaf\": \"1\", \"min_samples_split\": \"2\", \"min_weight_fraction_leaf\": \"0.0\", \"monotonic_cst\": \"None\", \"n_estimators\": \"100\", \"n_jobs\": \"None\", \"oob_score\": \"False\", \"random_state\": \"42\", \"verbose\": \"0\", \"warm_start\": \"False\"}');
 
 -- --------------------------------------------------------
 
@@ -532,46 +614,50 @@ INSERT INTO `log_model` (`id_model`, `tanggal_latih`, `akurasi`, `presisi`, `rec
 --
 
 CREATE TABLE `objek_wisata` (
-  `id_objek` int NOT NULL,
-  `nama_objek` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `deskripsi` text COLLATE utf8mb3_swedish_ci,
-  `kecamatan` varchar(100) COLLATE utf8mb3_swedish_ci DEFAULT NULL,
-  `latitude` varchar(100) COLLATE utf8mb3_swedish_ci DEFAULT NULL,
-  `longitude` varchar(100) COLLATE utf8mb3_swedish_ci DEFAULT NULL,
-  `foto` varchar(255) COLLATE utf8mb3_swedish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_objek` int(11) NOT NULL,
+  `nama_objek` varchar(100) NOT NULL,
+  `deskripsi` text DEFAULT NULL,
+  `kecamatan` varchar(100) DEFAULT NULL,
+  `latitude` varchar(100) DEFAULT NULL,
+  `longitude` varchar(100) DEFAULT NULL,
+  `foto` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `objek_wisata`
 --
 
 INSERT INTO `objek_wisata` (`id_objek`, `nama_objek`, `deskripsi`, `kecamatan`, `latitude`, `longitude`, `foto`) VALUES
-(26, 'Mesjid Asal peparik', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.017576413941228', '97.26762983620505', 'MESJID ASAL PEPARIK.jpeg'),
-(27, 'Puncak Dedalu', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.061404322164484', '97.10172876983013', 'PUNCAK TERANGUN.jpeg'),
-(28, 'Aih Kala Pinang ', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.035433766297055', '97.33441741488646', 'AIH KALA PINANG.jpeg'),
-(29, 'Berawang Lopah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.022689775361257', '97.2438519796822', 'BERAWANG LOPAH.jpg'),
-(30, 'Berawang Tasik', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.025212243398782', '97.23968576618906', 'BERAWANG TASIK.jpeg'),
-(31, 'Lestari Ayu Kedah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9901352933750696', '97.25586029365179', 'LESTARI AYU KEDAH.jpeg'),
-(32, 'Taman Mini Gayo Indah (TMGI)', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.996951537739622', '97.32596779573143', 'TAMAN MINI GAYO INDAH.jpg'),
-(33, 'Bur Godang', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.21146196776865', '97.14596051044721', 'BUR GODANG (1).jpeg'),
-(34, 'Makam Datok Pining', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.109520105885751', '97.58930536618921', 'MAKAM DATOK PINING.jpeg'),
-(35, 'Panorama Bur Reko', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9854070213087245', '97.48653787553722', 'BUR REKO.png'),
-(36, 'Mesjid Asal Penampaan', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9943968514993813', '97.34367872570978', 'MESJID ASAL PENAMPAAN FIKS.jpeg'),
-(37, 'Kampung Inggris', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.90554754169594', '97.38600933396461', 'KAMPUNG INGGRIS.jpeg'),
-(38, 'Uyem Beriring', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9493640180417606', '97.36592668999604', 'UYEM BERIRING.jpeg'),
-(39, 'Taman Nasional Gunung Leuser (TNGL)', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.75707575721471', '97.17395622481023', 'TAMAN NASIONAL GUNUNG LEUSER.jpeg'),
-(40, 'Air terjun Rerebe', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.057773108426153', '97.40632386577356', 'AIR TERJUN REREBE.jpeg'),
-(41, 'Bukit Cinta', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9569465283024665', '97.35648514268019', 'BUKIT CINTA.jpeg'),
-(42, 'Puncak Genting', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.053857816984169', '97.40737527883213', 'PUNCAK GENTING.jpeg'),
-(43, 'Pemandian Akang Siwah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9425760992733094', '97.31268120886729', 'AKANG SIWAH.jpeg'),
-(44, 'Bur Jumpe', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.013863118651852', '97.35788742386038', 'BUR JUMPE.jpg'),
-(45, 'Puncak Angkasan', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9348507811693705', '97.21576919502468', 'PUNCAK ANGKASAN.jpeg'),
-(46, 'Air Terjun Pungke Jaya', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.5311636656944625', '96.00570339016275', 'AIR TERJUN PUNGKE JAYA.jpeg'),
-(47, 'Kolam Renang marmas', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.9780967609389903', '97.34758086194334', 'KOLAM RENANG MARMAS.jpeg'),
-(48, 'TPU Datok Imem Bukit', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.0240881389193115', '97.30123315269606', 'TPU DATUK IMEM BUKIT.jpeg'),
-(49, 'Pinus Blangsere', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '4.003797018348551', '97.31658189742518', 'WISATA BLANGSERE.jpeg'),
-(50, 'Sumber Air Panas Singah Mulo', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'KecamatanContoh', '3.7716132542917826', '97.5867866061212', 'SUMBER AIR PANAS SINGAH MULO.jpeg'),
-(55, 'Tobacco Hut', 'Tobacco Hut adalah tempat unik di Kabupaten Gayo Lues yang menghadirkan nuansa tradisional dan aroma khas tembakau pegunungan. Terletak di Kecamatan Blangkejeren, tempat ini menjadi destinasi favorit pecinta tembakau lokal dan wisatawan, menawarkan pengalaman autentik menikmati hasil bumi berkualitas tinggi dari dataran tinggi Aceh.', 'Blangkejeren', '3.983203351493721', '97.33299999462632', 'TOBACCO HUT.jpeg');
+(26, 'Mesjid Asal peparik', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangjerango', '4.017576413941228', '97.26762983620505', 'MESJID ASAL PEPARIK.jpeg'),
+(27, 'Puncak Dedalu', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Terangun', '4.061404322164484', '97.10172876983013', 'PUNCAK TERANGUN.jpeg'),
+(28, 'Aih Kala Pinang ', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Bangkejeren', '4.035433766297055', '97.33441741488646', 'AIH KALA PINANG.jpeg'),
+(29, 'Berawang Lopah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangjerango', '4.022689775361257', '97.2438519796822', 'BERAWANG LOPAH.jpg'),
+(30, 'Berawang Tasik', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangjerango', '4.025212243398782', '97.23968576618906', 'BERAWANG TASIK.jpeg'),
+(31, 'Lestari Ayu Kedah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangjerango', '3.9901352933750696', '97.25586029365179', 'LESTARI AYU KEDAH.jpeg'),
+(32, 'Taman Mini Gayo Indah (TMGI)', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.996951537739622', '97.32596779573143', 'TAMAN MINI GAYO INDAH.jpg'),
+(33, 'Bur Godang', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Pantan Cuaca', '4.21146196776865', '97.14596051044721', 'BUR GODANG (1).jpeg'),
+(34, 'Makam Datok Pining', 'Makam Datuk Pining adalah situs bersejarah yang terletak di Kabupaten Gayo Lues, Provinsi Aceh, Indonesia. Makam ini menjadi tempat peristirahatan terakhir seorang tokoh yang dikenal sebagai Datuk Pining, yang dihormati oleh masyarakat setempat karena peran dan kontribusinya dalam sejarah daerah tersebut.', 'Kecamatan Pining', '4.109520105885751', '97.58930536618921', 'MAKAM DATOK PINING.jpeg'),
+(35, 'Panorama Bur Reko', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Dabun Gelang', '3.9854070213087245', '97.48653787553722', 'BUR REKO.png'),
+(36, 'Mesjid Asal Penampaan', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.9943968514993813', '97.34367872570978', 'MESJID ASAL PENAMPAAN FIKS.jpeg'),
+(37, 'Kampung Inggris', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.90554754169594', '97.38600933396461', 'KAMPUNG INGGRIS.jpeg'),
+(38, 'Uyem Beriring', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.9493640180417606', '97.36592668999604', 'UYEM BERIRING.jpeg'),
+(39, 'Taman Nasional Gunung Leuser (TNGL)', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Kutapanjang', '3.75707575721471', '97.17395622481023', 'TAMAN NASIONAL GUNUNG LEUSER.jpeg'),
+(40, 'Air terjun Rerebe', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Tripe Jaya', '4.057773108426153', '97.40632386577356', 'AIR TERJUN REREBE.jpeg'),
+(41, 'Bukit Cinta', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.9569465283024665', '97.35648514268019', 'BUKIT CINTA.jpeg'),
+(42, 'Puncak Genting', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Pining', '4.053857816984169', '97.40737527883213', 'PUNCAK GENTING.jpeg'),
+(43, 'Pemandian Akang Siwah', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangpegayon', '3.9425760992733094', '97.31268120886729', 'AKANG SIWAH.jpeg'),
+(44, 'Bur Jumpe', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '4.013863118651852', '97.35788742386038', 'BUR JUMPE.jpg'),
+(45, 'Puncak Angkasan', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangjerango', '3.9348507811693705', '97.21576919502468', 'PUNCAK ANGKASAN.jpeg'),
+(46, 'Air Terjun Pungke Jaya', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Putri Betung', '3.8955821859873856', '97.44048633813608', 'AIR TERJUN PUNGKE JAYA.jpeg'),
+(47, 'Kolam Renang marmas', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Blangkejeren', '3.9780967609389903', '97.34758086194334', 'KOLAM RENANG MARMAS.jpeg'),
+(48, 'TPU Datok Imem Bukit', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Kutapanjang', '4.0240881389193115', '97.30123315269606', 'TPU DATUK IMEM BUKIT.jpeg'),
+(49, 'Pinus Blangsere', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Kutapanjang', '4.003797018348551', '97.31658189742518', 'WISATA BLANGSERE.jpeg'),
+(50, 'Sumber Air Panas Singah Mulo', 'Deskripsi singkat objek wisata ini menjelaskan daya tarik alam, budaya, atau sejarah yang khas dari tempat tersebut.', 'Putri Betung', '3.7716132542917826', '97.5867866061212', 'SUMBER AIR PANAS SINGAH MULO.jpeg'),
+(55, 'Tobacco Hut', 'Tobacco Hut adalah tempat unik di Kabupaten Gayo Lues yang menghadirkan nuansa tradisional dan aroma khas tembakau pegunungan. Terletak di Kecamatan Blangkejeren, tempat ini menjadi destinasi favorit pecinta tembakau lokal dan wisatawan, menawarkan pengalaman autentik menikmati hasil bumi berkualitas tinggi dari dataran tinggi Aceh.', 'Blangkejeren', '3.983203351493721', '97.33299999462632', 'TOBACCO HUT.jpeg'),
+(56, 'Kolam renang simpang telpi', 'Deksripsi', 'KecamatanContoh', '4.032156115073211', '97.355160814821', 'WhatsApp Image 2025-04-22 at 22.13.00_e348671b.jpg'),
+(57, 'Pemandian Atu peltak', 'Deskripsi', 'Rikit gaib', '3.996502612425184', '97.34145041653514', 'ATU PELTAK.jpg'),
+(58, 'Stadion Buntul Nege', 'Deskripsi', 'Blangpegayon', '3.9890411969150543', '97.30451833509858', 'STADION PACUAN KUDA BUNTUL NEGE.jpg'),
+(59, 'Kolam Pemandian Penomon', 'Kolam Pemandian Penomon merupakan salah satu destinasi wisata alam yang menawarkan kesegaran air pegunungan yang jernih dan sejuk. Terletak di tengah suasana alam yang masih asri dan tenang, kolam ini menjadi tempat favorit bagi warga lokal maupun wisatawan yang ingin bersantai sambil menikmati kesejukan alam.', 'Kecamatan RIkit gaib', '4.120796309956227', '97.24846096629986', 'PENOMON.jpg');
 
 -- --------------------------------------------------------
 
@@ -580,12 +666,12 @@ INSERT INTO `objek_wisata` (`id_objek`, `nama_objek`, `deskripsi`, `kecamatan`, 
 --
 
 CREATE TABLE `users` (
-  `id_users` int NOT NULL,
-  `username` varchar(50) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb3_swedish_ci NOT NULL,
-  `level` enum('admin','user','guest') COLLATE utf8mb3_swedish_ci DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_swedish_ci;
+  `id_users` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` enum('admin','user','guest') DEFAULT 'user'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
 -- Dumping data for table `users`
@@ -594,7 +680,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id_users`, `username`, `email`, `password`, `level`) VALUES
 (1, 'admin', 'admin@gmail.com', 'admin', 'admin'),
 (2, 'budi', 'budi@gmail.com', 'budi', 'user'),
-(3, 'jeni', 'jeni@gmail.com', 'jeni', 'user');
+(3, 'jeni', 'jeni@gmail.com', 'jeni', 'user'),
+(4, 'sultan', 'sultan@gmail.com', 'sultan', 'user');
 
 --
 -- Indexes for dumped tables
@@ -663,49 +750,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `data_kriteria`
 --
 ALTER TABLE `data_kriteria`
-  MODIFY `id_data_kriteria` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id_data_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `fasilitas`
 --
 ALTER TABLE `fasilitas`
-  MODIFY `id_fasilitas` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=675;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=691;
 
 --
 -- AUTO_INCREMENT for table `hasil_prediksi`
 --
 ALTER TABLE `hasil_prediksi`
-  MODIFY `id_prediksi` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_prediksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `id_kriteria` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `kunjungan_wisata`
 --
 ALTER TABLE `kunjungan_wisata`
-  MODIFY `id_kunjungan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_kunjungan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `log_model`
 --
 ALTER TABLE `log_model`
-  MODIFY `id_model` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_model` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `objek_wisata`
 --
 ALTER TABLE `objek_wisata`
-  MODIFY `id_objek` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id_objek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

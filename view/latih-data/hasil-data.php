@@ -14,8 +14,22 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Hasil Klasifikasi Objek Wisata (Random Forest)</h4>
+
+                  <div class="input-group mb-3">
+                    <input type="text" id="searchTable" class="form-control" placeholder="Cari objek wisata di tabel...">
+                  </div>
+
+                  <div class="mb-3">
+                    <select id="filterLabel" class="form-select">
+                      <option value="">Semua Label</option>
+                      <option value="rendah">Rendah</option>
+                      <option value="sedang">Sedang</option>
+                      <option value="tinggi">Tinggi</option>
+                    </select>
+                  </div>
+
                   <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover">
+                    <table class="table table-bordered table-striped table-hover" id="dataTable">
                       <thead class="table-dark text-center">
                         <tr>
                           <th>No</th>
@@ -34,10 +48,10 @@
                         while (($data = fgetcsv($file)) !== FALSE):
                           $label = strtolower(end($data));
                           $rowColor = '';
-                          if ($label === 'rendah') $rowColor = 'style="color:green;font-weight:bold"';
+                          if ($label === 'rendah') $rowColor = 'style="color:red;font-weight:bold"';
                           elseif ($label === 'sedang') $rowColor = 'style="color:orange;font-weight:bold"';
-                          elseif ($label === 'tinggi') $rowColor = 'style="color:red;font-weight:bold"';
-                          echo "<tr><td class='text-center'>{$no}</td>";
+                          elseif ($label === 'tinggi') $rowColor = 'style="color:green;font-weight:bold"';
+                          echo "<tr data-label='{$label}'><td class='text-center'>{$no}</td>";
                           foreach ($data as $i => $value) {
                             if ($i === count($data) - 1) {
                               echo "<td $rowColor>" . htmlspecialchars($value) . "</td>";
@@ -53,19 +67,19 @@
                       </tbody>
                     </table>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- PETA -->
           <div class="row mt-4">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Peta Lokasi Objek Wisata</h4>
                   <div class="input-group mb-3">
-                    <input type="text" id="searchBox" class="form-control" placeholder="Cari nama objek wisata..." />
+                    <input type="text" id="searchBox" class="form-control" placeholder="Cari nama objek wisata di peta..." />
                   </div>
                   <div id="map" class="w-100 rounded" style="height: 500px;"></div>
                 </div>
@@ -73,7 +87,6 @@
             </div>
           </div>
 
-          <!-- LOG MODEL -->
           <div class="row mt-4">
             <div class="col-12">
               <div class="card">
@@ -122,7 +135,9 @@
       </div>
     </div>
   </div>
+
   <?php include 'view/template/script.php'; ?>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -151,7 +166,7 @@
   foreach ($csvData as $item) {
     $nama = mysqli_real_escape_string($conn, $item['objek_wisata']);
     $label = strtolower(trim($item['label']));
-    $color = $label === 'tinggi' ? 'red' : ($label === 'sedang' ? 'orange' : 'green');
+    $color = $label === 'tinggi' ? 'green' : ($label === 'sedang' ? 'orange' : 'red');
 
     $q = mysqli_query($conn, "SELECT * FROM objek_wisata WHERE nama_objek = '$nama' LIMIT 1");
     if ($objek = mysqli_fetch_assoc($q)) {
@@ -190,6 +205,29 @@
         }
       });
     });
+
+    document.getElementById('searchTable').addEventListener('input', function () {
+      filterTable();
+    });
+
+    document.getElementById('filterLabel').addEventListener('change', function () {
+      filterTable();
+    });
+
+    function filterTable() {
+      const keyword = document.getElementById('searchTable').value.toLowerCase();
+      const label = document.getElementById('filterLabel').value;
+      const rows = document.querySelectorAll('#dataTable tbody tr');
+
+      rows.forEach(row => {
+        const nama = row.cells[1]?.textContent.toLowerCase() || '';
+        const rowLabel = row.getAttribute('data-label');
+        const matchLabel = label === '' || rowLabel === label;
+        const matchSearch = nama.includes(keyword) || keyword === '';
+        row.style.display = matchLabel && matchSearch ? '' : 'none';
+      });
+    }
   </script>
+
 </body>
 </html>
